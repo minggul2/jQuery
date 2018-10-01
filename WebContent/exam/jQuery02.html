@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type = "text/css">
+.backColor {
+	background : green;
+}	
+</style>
+</head>
+<body>
+	<h1 class = "back">Hello jQuery</h1>
+	<button id = "hellobtn">헬로우 제이쿼리</button>
+		
+	<script src = "http://code.jquery.com/jquery-3.3.1.min.js" ></script>
+	<script>
+		$(document).ready(function(){
+			$('.back').addClass('backColor');
+			
+			/* $('#hellobtn').click(function(){
+				//this = $('#hellobtn') 같음
+				$(this).hide();
+				alert("jQuery 연습");
+				$(this).show();
+			}); */ 
+			//hide()크롬이 안됨
+			
+			//hide() 기본값 속도 400
+			$('#hellobtn').click(function(){
+				//this = $('#hellobtn') 같음
+				$(this).hide(10, function(){
+					alert("jQuery 연습!!");
+				}).show(10, function(){
+					$(this).show();					
+				});
+			});
+			
+			
+		});
+		
+	</script>
+</body>
+</html>
