@@ -10,13 +10,32 @@
 	
 	<input type = "button" id = "btn" value = "버튼">
 	
+	
+	
 	<script src = "http://code.jquery.com/jquery-3.3.1.min.js" ></script>
 	<script>
 		$(document).ready(function(){
 			$('#btn').click(function(){
-				$('#name').val("홍길동");
+				//$('#name').val("홍길동"); 제이쿼리
 				//document.getElementById("name").value = "홍길동"; 자바스크립트
+				
+				
+				//var html = $('#disp').html(); 제이쿼리
+				//var html = document.getElementById("disp").innerHTML; 자바스크립트
+				
+				//var txt = $('#disp').text();	제이쿼리 
+				//var txt = document.getElementById("disp").innerText;	자바스크립트
+				
+				$('#disp').text('Have a nice day!!'); //제이쿼리
+				//document.getElementById("disp").innerText = 'Have a nice day!!';	자바스크립트
+				//$('#disp').css('color', 'red');
+				//$('#disp').css('font-weight', 'bold');
+				
+				$('#disp').html("<b style = 'color: blue;'> Have a nice day!! </br>");
+				
 			});
+			
+			
 		});	
 	</script>
 </body>

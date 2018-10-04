@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.container{
+		position : absolute;
+		top : 10px;
+		left : 100px;
+		height : 300px;
+		width : 600px;
+		border : 1px dotted red;
+		font-size : 10px;
+	}
+</style>
+</head>
+<body>
+	<a id = "welcome" href = "javascript:void(0)">처음화면</a><br><br>
+	<a id = "sample" href = "#">샘플화면</a><br><br>
+	<!-- void는 아무런변화없고 #은 주소창에나타남 -->
+	
+	<div id = "result" class = "container" style = "font-size : 20px; color : blue;"></div>
+	<div></div>
+	
+	<script src = "http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#result').text('왼쪽 메뉴를 선택하시오');
+			
+			
+			$('#sample').click(function(){
+				$('#result').removeAttr('style');	//remove(String attributeName) 속성이름 해당하는 속성제거
+				$('#result').load('sample.txt');
+			});
+			
+			$('#welcome').click(function(){
+				$('#result').text('Welcome jQuery');
+				$('#result').css('font-weight', 'bold');
+				$('#result').css('font-size', '50pt');
+				$('#result').css('color', 'red');
+//				$('#result').html('');
+			});
+		});
+		
+	</script>
+</body>
+</html>

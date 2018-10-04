@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body *:not(ul.tab){
+		color : red;	
+	}
+</style>
+</head>
+<body>
+	<div id = "container">
+		<ul class = "tab">
+			<li><a href = "#tab1" class = "selected">javascript</a></li>
+			<li><a href = "#tab2">CSS</a></li>
+			<li><a href = "#tab3">HTML</a></li>
+			<li><a href = "#tab4">jQuery</a></li>
+			<li><a href = "#tab5">XHTML</a></li>
+		</ul>
+		
+		<ul class = "panel">
+			<li id = "tab1">Javascript를 선택하셨네요</li>
+			<li id = "tab2">CSS를 선택하셨네요</li>
+			<li id = "tab3">HTML을 선택하셨네요</li>
+			<li id = "tab4">jQuery를 선택하셨네요 </li>
+			<li id = "tab5">XHTML을 선택하셨네요</li>
+			
+			<!-- <li class = "tab1">Javascript를 선택하셨네요</li>
+			<li class = "tab2">CSS를 선택하셨네요</li>
+			<li class = "tab3">HTML을 선택하셨네요</li>
+			<li class = "tab4">jQuery를 선택하셨네요 </li>
+			<li class = "tab5">XHTML을 선택하셨네요</li> -->
+		</ul>
+	</div>
+	
+	<script src = "http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			//선택자를 함수를 써서 동적으로 찾아냄
+			
+			//alert($('ul.tab > li a.selected').attr('href'));
+			//alert($('ul.tab li a.selected').attr('href'));
+			//후손, 자손확인
+			
+			//$('ul.panel li#tab2').hide();
+			
+			//$('ul.panel li'+$('ul.tab li a.selected').attr('href')).hide();
+			
+			/* $('ul.panel li.tab2').hide();
+			$('ul.panel li.tab3').hide(); */
+			
+			//$('ul.panel li:not('+$('ul.tab li a.selected').attr('href')+')').hide();
+			
+			var selector = $('ul.tab li a.selected').attr('href');	
+			$('ul.panel li:not('+ selector +')').hide();
+			
+			
+			$('ul.tab li a').click(function(){
+				$('ul.tab li a').removeClass('selected');
+				$(this).addClass('selected');
+				
+				$('ul.panel li').hide();
+				$($(this).attr('href')).show();
+				$('ul.panel li'+$('ul.tab li a.selected').attr('href')).show();
+				
+			});
+			
+		});
+	</script>
+</body>
+</html>
