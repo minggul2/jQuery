@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	
+	<img id = "img" class = '' src = "../image/aa.JPG" width = "200" height = "200" onclick = "bigImage()" /><br>
+	<script src = "http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			var width = 400;
+			var height = 400;
+			
+			if(document.URL == 'http://localhost:8080/jQuery/exam/jQuery16.html'){
+				$('#img').before('<img id = "plus" src = "../image/plus.png"/><br>');
+				width = 200;
+				height = 200;
+			}
+			
+			$('#img').attr('src', '../image/bb.JPG');
+			$('#img').attr('width', width);
+			$('#img').attr('src', '../image/cc.JPG');
+			$('#img').attr('height', height);
+			
+			
+			$('#img').mouseover(function(){
+				$(this).attr('src', '../image/bb.JPG');
+				$(this).attr('width', width);
+			}).mouseout(function(){
+				$(this).attr('src', '../image/cc.JPG');
+				$(this).attr('height', height);
+			});
+			
+			
+			$('#plus').click(function(){
+				window.open('jQuery16.html?state=1', 'plus', '400', '400');
+/*				
+				if($('#img').attr('class') == ''){
+					$('#img').addClass('clicked');
+				}else{
+					$('#img').attr('width', '200');
+					$('#img').attr('height', '200');
+					$('#img').removeClass('clicked');
+				}
+				*/
+			});
+		});
+	</script>
+	 <script>
+	 	function bigImage(){
+	 		var newWindow = window.open("", "", "width=500 height = 500");
+	 		
+	 		var img = newWindow.document.createElement("img");
+	 		img.setAttribute("src", "../image/aa.JPG");
+	 		img.setAttribute("width", "500");
+	 		img.setAttribute("height", "500");
+	 		
+	 		newWindow.document.body.appendChild(img);
+	 		
+	 	}
+	 </script>
+</body>
+</html>

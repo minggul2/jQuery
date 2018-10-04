@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.redColor{
+		color : red;
+	}
+</style>
+</head>
+<body>
+	<div id = "mainMenu">
+		<div id = "naver" class = "redColor"><h1>네이버</h1></div>
+		<div id = "hong" class = "redColor">홍길동 블로그</div>
+		<div id = "google" class = "redColor">구글</div>
+	</div>
+	
+	<script src = "http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#mainMenu div').css('cursor', 'pointer');
+			
+			/* $('#naver').bind('click', function(){
+				$('#mainMenu > div').removeClass('redColor');
+				$('#naver').addClass('redColor');
+			}); */
+			
+			
+			$('#mainMenu div').bind('click', function(){
+				alert($(this).text());
+				$('#mainMenu .redColor').removeClass('redColor');
+				$(this).addClass('redColor');
+			});
+		});
+	</script>
+</body>
+</html>

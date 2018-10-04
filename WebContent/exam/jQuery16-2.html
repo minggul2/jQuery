@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<img src="../image/plus.png" width="20" height="20" onclick="bigImage()">
+<br>
+<img id="img" src="../image/aa.JPG" width="200" height="200">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#img').mouseover(function(){
+		$(this).attr('src','../image/bb.JPG');
+	}).mouseout(function(){
+		$(this).attr('src','../image/cc.JPG');
+	});
+});
+</script>
+<script type="text/javascript">
+function bigImage(){
+	var newWindow = window.open("","","width=500 height=500");
+	
+	var img = newWindow.document.createElement("img");
+	img.setAttribute("src","http://localhost:8080/jQuery/image/aa.JPG");
+	img.setAttribute("width","500");
+	img.setAttribute("height","500");
+	newWindow.document.body.appendChild(img);
+	
+	var p = newWindow.document.createElement("p");
+	p.innerHTML = "test";
+	newWindow.document.body.appendChild(p);
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

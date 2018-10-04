@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<img src="../image/plus.png" width="20" height="20">
+<br>
+<img id="img" src="../image/aa.JPG" width="200" height="200">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	
+	$('#img').mouseover(function(){
+		$(this).attr('src','../image/bb.JPG');
+	}).mouseout(function(){
+		$(this).attr('src','../image/cc.JPG');
+	});
+	
+	$('img:eq(0)').click(function(){
+		
+		var url = document.URL;
+		
+		var newWidnow = window.open(url, "", "width=300 height=300");
+		newWindow.document.removeChild($("img:eq(0)"));
+		var img = newWindow.document.$("img:eq(0)");
+		alert(img);
+	});
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

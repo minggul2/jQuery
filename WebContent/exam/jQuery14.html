@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	body{
+		margin : 0px;
+		padding : 0px;
+	}
+	
+	.jbTitle{
+		text-align : center;
+	}
+	
+	.jbMenu{
+		text-align : center;
+		background-color : yellow;
+		padding : 10px 0px;
+		width : 100%;
+	}
+	
+	.jbContent{
+		height : 2000px;
+	}
+	
+	.jbFixed{
+		position : fixed;
+		top : 0px;
+		box-shadow: 0 2px 10px #ddd;
+	}
+</style>
+</head>
+<body>
+	<div class = "jbTitle">
+		<h1>Site Title</h1>
+	</div>
+
+	<div class = "jbMenu jbFixed">
+		<p>
+			First Menu
+			Second Menu
+			Third Menu
+			Fourth Menu
+		</p>
+	</div>
+
+	가나다<br>
+	123<br>
+	ABC<br>
+	<div class = "jbContent">
+	</div>
+	
+	<script src = "http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var jboffset = $('.jbMenu').offset();
+			
+			$(window).scroll(function(){
+				console.log($(document).scrollTop());
+				if($(document).scrollTop() > jboffset.top)
+					$('.jbMenu').addClass('jbFixed');
+				else
+					$('.jbMenu').removeClass('jbFixed');
+			});
+		});
+	</script>
+</body>
+</html>

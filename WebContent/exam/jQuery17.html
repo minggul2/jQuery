@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	span, p{
+		margin : 9px;
+		font-size : 16px;
+		color : blue;
+	}
+	
+	.highlight{
+		background-color : yellow;
+		color : red;
+	}
+</style>
+
+</head>
+<body>
+	<span>Java</span>
+	<span>JQuery</span>
+	<span>Ajax</span>
+	
+	<p>Java</p>
+	<p>JQuery</p>
+	<p>Ajax</p>
+	
+	<script src = "http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			$('p, span').hover(function(){
+				$(this).addClass('highlight');
+			}, function(){
+				$(this).removeClass('highlight');l
+			});
+		});
+	</script>
+	
+</body>
+</html>
+
+<!-- 
+$(선택자).hover(handlerLn, handlerOut)
+$(선택자).mouseenter(handlerIn).mouseleave(hanlderOut)
+ -->
