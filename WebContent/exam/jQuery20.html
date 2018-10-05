@@ -18,6 +18,12 @@
 				
 				$('#wrap').append('<h3>' + length + '-' + targetHTML + '</h3>');
 			});
+			
+			setTimeout(function(){
+				$('h3').off();
+				alert("모든 이벤트가 제거되었습니다");
+			}, 1000);
+			
 		});
 	</script>
 </body>

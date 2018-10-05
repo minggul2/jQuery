@@ -1,0 +1,51 @@
+<!-- 
+	bind 는 처음 읽히는 태그들 외 동적으로 만들어진 노드들에게는 이벤트가 작동이 안됨
+	
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id = "demo2">
+		<button>add</button>
+		<ul>
+			<li>test1</li>
+			<li>test2</li>
+			<li>test3</li>
+		</ul>
+	</div>
+
+	<script src = "http://code.jquery.com/jquery-3.3.1.min.js"> </script>
+	<script>
+		$(document).ready(function(){
+			//비 동적 처리
+			/*
+			$('#demo2 button').bind('click', function(){
+				$('ul:eq(0)').append('<li>added</li>');
+			});
+			
+			$('#demo2 li').bind('click', function(){
+				alert($(this).text());
+			}); */
+			
+			//동적처리
+			
+			$('#demo2 button').bind('click', function(){
+				$('#demo2 li').unbind('click');
+				$('#demo2 ul').append('<li>added</li>').find($('li')).click(function(){
+					alert($(this).text());
+				});
+			});
+			
+			$('$demo li').bind('click', function(){
+				alert($(this).text());
+			});
+			
+		});
+	</script>
+</body>
+</html>
